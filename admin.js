@@ -7,12 +7,10 @@ let nextAssignmentId = 1;
 let nextSupplyId = 1;
 
 
-// Функция для открытия модального окна
 function openModal(modalId) {
     document.getElementById(modalId).style.display = "block";
 }
 
-// Функция для закрытия модального окна
 function closeModal(modalId) {
     document.getElementById(modalId).style.display = "none";
     document.getElementById('inventory-form').reset();
@@ -20,7 +18,6 @@ function closeModal(modalId) {
     document.getElementById('supply-form').reset();
 }
 
-// Инвентарь
 function openAddInventoryModal(editId) {
      openModal('addInventoryModal');
       if (editId) {
@@ -94,7 +91,6 @@ function renderInventoryTable() {
 
 
 
-// Заявки
 function addRequest(name) {
     requests.push({name: name});
     renderRequests();
@@ -111,7 +107,6 @@ function renderRequests() {
 }
 
 
-// Закрепление за пользователями
 function openAddAssignmentModal(editId) {
     openModal('addAssignmentModal');
        if (editId) {
@@ -189,8 +184,6 @@ function renderAssignmentsTable() {
         });
 }
 
-
-// Поставки
 function openAddSupplyModal(editId) {
      openModal('addSupplyModal');
       if (editId) {
@@ -272,7 +265,6 @@ function renderSupplyTable() {
 }
 
 
-// Отчеты
 function generateReport() {
     const reportOutput = document.getElementById('report-output');
     reportOutput.innerHTML = '';
