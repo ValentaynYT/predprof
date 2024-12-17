@@ -40,8 +40,6 @@ def upload():
         return redirect(url_for('login'))
 
 
-
-
 @app.route("/", methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -70,7 +68,6 @@ def register():
         password1 = request.form['password1']
         password2 = request.form['password2']
 
-        # Проверка на существование пользователя с таким email
         existing_user = User.query.filter_by(email=email).first()
         if existing_user:
             flash('Пользователь с таким email уже существует!', 'danger')
