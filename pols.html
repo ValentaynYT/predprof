@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спортивный Инвентарь</title>
+    <link rel="stylesheet" href="pols.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Доступный Спортивный Инвентарь</h1>
+
+        <table id="inventory-table">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Категория</th>
+                    <th>Количество</th>
+                    <th>Состояние</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Мяч футбольный</td>
+                    <td>Мячи</td>
+                    <td>10</td>
+                    <td>Отличное</td>
+                    <td><button class="select-item" data-name="Мяч футбольный">Выбрать</button></td>
+                </tr>
+                <tr>
+                    <td>Скакалка</td>
+                    <td>Кардио</td>
+                    <td>20</td>
+                    <td>Хорошее</td>
+                    <td><button class="select-item" data-name="Скакалка">Выбрать</button></td>
+                 </tr>
+                 <tr>
+                    <td>Гантели 5 кг</td>
+                    <td>Силовые</td>
+                    <td>15</td>
+                    <td>Удовлетворительное</td>
+                     <td><button class="select-item" data-name="Гантели 5 кг">Выбрать</button></td>
+                </tr>
+                 <tr>
+                    <td>Коврик для йоги</td>
+                    <td>Йога</td>
+                    <td>20</td>
+                     <td>Отличное</td>
+                    <td><button class="select-item" data-name="Коврик для йоги">Выбрать</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <button id="open-modal-btn">Подать Заявку</button>
+            <button id="check-status-btn">Отследить Статус</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно для заявки -->
+    <div id="request-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Заявка на Инвентарь</h2>
+            <form id="request-form">
+                <div id="selected-items-container">
+                    <p>Выбранный инвентарь:</p>
+                </div>
+                <label for="user-name">Ваше имя:</label>
+                <input type="text" id="user-name" required>
+                <label for="user-comment">Комментарий:</label>
+                 <textarea id="user-comment"></textarea>
+                <button type="submit">Отправить Заявку</button>
+            </form>
+        </div>
+    </div>
+
+   <!-- Модальное окно для отслеживания статуса -->
+    <div id="status-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Статус Заявки</h2>
+        <div id="status-content">
+          <p>Здесь будет отображаться статус заявки</p>
+        </div>
+        </div>
+    </div>
+
+    <script src="pols.js"></script>
+</body>
+</html>
