@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление Спортивным Инвентарем</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Управление Спортивным Инвентарем</h1>
+
+        <section id="inventory-section">
+            <h2>Инвентарь</h2>
+            <table id="inventory-table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Тип</th>
+                        <th>Количество</th>
+                        <th>Состояние</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-body">
+                    <!-- Здесь будут строки с данными -->
+                </tbody>
+            </table>
+            <button onclick="openAddInventoryModal()">Добавить Инвентарь</button>
+        </section>
+
+        <section id="requests-section">
+            <ul id="request-list">
+                <!-- Здесь будут элементы списка с заявками -->
+            </ul>
+        </section>
+
+        <section id="assignments-section">
+             <h2>Закрепление за пользователями</h2>
+             <table id="assignments-table">
+                <thead>
+                    <tr>
+                        <th>Инвентарь</th>
+                        <th>Пользователь</th>
+                        <th>Дата закрепления</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="assignments-body">
+                    <!-- Здесь будут строки с данными о закреплениях -->
+                </tbody>
+            </table>
+            <button onclick="openAddAssignmentModal()">Закрепить инвентарь</button>
+        </section>
+
+        <section id="supply-section">
+            <h2>Управление Поставками</h2>
+             <table id="supply-table">
+                <thead>
+                    <tr>
+                        <th>Инвентарь</th>
+                        <th>Цена</th>
+                        <th>Планируемая дата</th>
+                        <th>Поставщик</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="supply-body">
+                    <!-- Здесь будут строки с данными о поставках -->
+                </tbody>
+            </table>
+           <button onclick="openAddSupplyModal()">Запланировать поставку</button>
+        </section>
+
+         <section id="reports-section">
+            <h2>Отчеты</h2>
+            <button onclick="generateReport()">Сформировать отчет</button>
+            <div id="report-output">
+              <!-- Здесь будет выводиться отчет -->
+            </div>
+        </section>
+
+    </div>
+
+
+    <!-- Модальные окна -->
+    <div id="addInventoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addInventoryModal')">&times;</span>
+            <h2>Добавить/Изменить Инвентарь</h2>
+            <form id="inventory-form">
+                <input type="hidden" id="inventory-id">
+                <label for="name">Название:</label>
+                <input type="text" id="name" required><br>
+                <label for="type">Тип:</label>
+                <input type="text" id="type" required><br>
+                <label for="quantity">Количество:</label>
+                <input type="number" id="quantity" required><br>
+                <label for="condition">Состояние:</label>
+                 <select id="condition">
+                     <option value="Отличное">Отличное</option>
+                      <option value="Хорошее">Хорошее</option>
+                       <option value="Удовлетворительное">Удовлетворительное</option>
+                       <option value="Требуется ремонт">Требуется ремонт</option>
+                </select><br>
+                <button type="submit" >Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+     <div id="addAssignmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addAssignmentModal')">&times;</span>
+            <h2>Закрепить инвентарь за пользователем</h2>
+            <form id="assignment-form">
+                <input type="hidden" id="assignment-id">
+                <label for="assignment-inventory">Инвентарь:</label>
+                <select id="assignment-inventory" required></select><br>
+                <label for="assignment-user">Пользователь:</label>
+                <input type="text" id="assignment-user" required><br>
+                 <label for="assignment-date">Дата закрепления:</label>
+                 <input type="date" id="assignment-date" required><br>
+                <button type="submit" >Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="addSupplyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addSupplyModal')">&times;</span>
+            <h2>Запланировать поставку</h2>
+            <form id="supply-form">
+                <input type="hidden" id="supply-id">
+                <label for="supply-inventory">Инвентарь:</label>
+                <select id="supply-inventory" required></select><br>
+                <label for="supply-price">Цена:</label>
+                <input type="number" id="supply-price" required><br>
+                 <label for="supply-date">Планируемая дата:</label>
+                 <input type="date" id="supply-date" required><br>
+                <label for="supply-supplier">Поставщик:</label>
+                <input type="text" id="supply-supplier" required><br>
+                <button type="submit" >Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="admin.js"></script>
+</body>
+</html>
