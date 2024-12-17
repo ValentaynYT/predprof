@@ -50,17 +50,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // Открыть модальное окно
     openModalBtn.addEventListener('click', function() {
         modal.style.display = 'block';
     });
 
-    // Открыть модальное окно статуса
     checkStatusBtn.addEventListener('click', function() {
         statusModal.style.display = 'block';
          updateStatusDisplay();
     });
-    // Закрыть модальное окно
     closeModalBtn.forEach(function (btn) {
         btn.addEventListener('click', function() {
           modal.style.display = 'none';
@@ -68,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-     // Закрыть модальное окно при клике вне его
     window.addEventListener('click', function(event) {
         if (event.target == modal) {
             modal.style.display = 'none';
@@ -77,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
           statusModal.style.display = 'none';
         }
     });
-    // Обновление статуса заявок
      function updateStatusDisplay() {
             if (submittedRequests.length === 0) {
                 statusContent.innerHTML = '<p>Нет поданных заявок.</p>';
@@ -99,13 +94,11 @@ document.addEventListener('DOMContentLoaded', function () {
           }
        }
 
-    // Обработка отправки формы
     requestForm.addEventListener('submit', function(event) {
          event.preventDefault();
           const userName = document.getElementById('user-name').value;
         const userComment = document.getElementById('user-comment').value;
 
-          // Сохранение заявки
         submittedRequests.push({
               userName,
               userComment,
