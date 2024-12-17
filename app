@@ -12,14 +12,20 @@ app.config['SECRET_KEY'] = 'key'
 db = SQLAlchemy(app)
 
 class User(db.Model):
-    name = db.Column(db.String(20), unique=True, nullable=False)
+   
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(50), nullable=False)
-    products = db.relationship('Product', backref='owner', lazy=True)
+   
+
+def __init__(self, name, email, password):
+    self.name = name
+    self.email = email
+    self.password = password
+
 
 class Product(db.Model):
-   
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
