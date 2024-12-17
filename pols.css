@@ -96,7 +96,7 @@ button:hover {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: rgb(148, 3, 3);
     text-decoration: none;
     cursor: pointer;
 }
@@ -118,4 +118,3 @@ button:hover {
 }
 #selected-items-container{
   margin-bottom: 10px;
-}
