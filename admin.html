@@ -23,7 +23,6 @@
                     </tr>
                 </thead>
                 <tbody id="inventory-body">
-                    <!-- Здесь будут строки с данными -->
                 </tbody>
             </table>
             <button onclick="openAddInventoryModal()">Добавить Инвентарь</button>
@@ -31,7 +30,6 @@
 
         <section id="requests-section">
             <ul id="request-list">
-                <!-- Здесь будут элементы списка с заявками -->
             </ul>
         </section>
 
@@ -47,7 +45,6 @@
                     </tr>
                 </thead>
                 <tbody id="assignments-body">
-                    <!-- Здесь будут строки с данными о закреплениях -->
                 </tbody>
             </table>
             <button onclick="openAddAssignmentModal()">Закрепить инвентарь</button>
@@ -66,7 +63,6 @@
                     </tr>
                 </thead>
                 <tbody id="supply-body">
-                    <!-- Здесь будут строки с данными о поставках -->
                 </tbody>
             </table>
            <button onclick="openAddSupplyModal()">Запланировать поставку</button>
@@ -76,14 +72,12 @@
             <h2>Отчеты</h2>
             <button onclick="generateReport()">Сформировать отчет</button>
             <div id="report-output">
-              <!-- Здесь будет выводиться отчет -->
             </div>
         </section>
 
     </div>
 
 
-    <!-- Модальные окна -->
     <div id="addInventoryModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('addInventoryModal')">&times;</span>
