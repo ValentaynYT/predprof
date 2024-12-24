@@ -12,15 +12,15 @@ db = SQLAlchemy(app)
 class User(db.Model): 
     
     id = db.Column(db.Integer, primary_key=True) 
-    name = db.Column(db.String(20), unique=True, nullable=False) 
+    name = db.Column(db.String(20), nullable=False) 
     email = db.Column(db.String(50), unique=True, nullable=False) 
     password = db.Column(db.String(50), nullable=False) 
     
  
-def __init__(self, name, email, password): 
-    self.name = name 
-    self.email = email 
-    self.password = password 
+    def __init__(self, name, email, password): 
+        self.name = name 
+        self.email = email 
+        self.password = password 
  
  
 class Product(db.Model): 
@@ -46,15 +46,19 @@ def login():
         remember = 'remember' in request.form 
  
         user = User.query.filter_by(email=email).first() 
- 
+        if email == "admin@12" and password == "admin":
+            flash('Вход успешен как администратор!', 'success')
+            return render_template("admin.html")
         if user and user.password == password: 
             session['user_email'] = user.email 
             if remember: 
-                session.permanent = True 
+                session.permanent = True
+            
             flash('Вход успешен!', 'success') 
             return render_template("pols.html")  
         else: 
-            flash('Неверный email или пароль!', 'danger') 
+            flash('Неверный email или пароль!', 'danger')
+       
  
     return render_template("login.html") 
  
@@ -82,7 +86,7 @@ def register():
         db.session.commit() 
  
         flash('Регистрация успешна!', 'success') 
-        return redirect(url_for('pols.html')) 
+        return render_template("pols.html")  
  
     return render_template("register.html") 
  
